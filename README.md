@@ -51,3 +51,18 @@ Our p-value for Lot 2 is 0.6072. With our significance value at 0.05, we fail to
 ![t_test_Third](https://user-images.githubusercontent.com/106129195/192068504-6f72a496-b388-43ea-a794-b4ad7a2ec973.png)
 
 Our p-value for Lot 3 is 0.04168. With our significance value at 0.05, we reject our null hypothesis. There is a significant difference between the PSI of Lot 3 and the population mean of 1,500.
+
+## Study Design: MechaCar vs Competition
+
+Now that we've looked into what could be a cause for the issue for production, we can investigate how the MechaCar performs against the competition. To do this, we need to consider what the consumer would desire, including but not limited to:
+* City and Highway Fuel Efficiency
+* Cost
+* Maintenance Cost
+* Interior Design and Comfort
+* Technology
+
+For this study, let us investigate similar makes and models to the MechaCar, and their MPG. Our alternative hypothesis is that consumers are more likely to purchase vehicles with high MPG. To test this, we could pull data of makes and models of cars that are similar to the Mechacar, specifically:
+* their MPGs
+* the number of sales
+
+Using Multiple Linear Regression, we could assess the relationship between the competitor's cars' sales and MPG and determine whether more cars with higher MPG are purchased compared to cars with lower MPG.
