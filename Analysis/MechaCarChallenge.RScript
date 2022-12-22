@@ -1,0 +1,20 @@
+library("dplyr")
+library("tidyverse")
+
+MechaCarData_table <- read.csv(file='MechaCar_mpg.csv',check.names=F,stringsAsFactors = F) #create dataframe for Mecha Car data
+
+lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,data=MechaCarData_table) #generate multiple linear regression model
+
+summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,data=MechaCarData_table)) #generate summary statistics
+
+SuspensionCoil_table <- read.csv(file='Suspension_Coil.csv',check.names=F,stringsAsFactors = F) #create dataframe for Suspension Coil data
+
+total_summary <- SuspensionCoil_table %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep') #create summary table
+
+lot_summary <- SuspensionCoil_table %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep') #create lot summary
+
+t.test(SuspensionCoil_table$PSI,mu=1500) #determine if PSI across all manufacturing lots is statistically different from the population mean of 1,500 pounds per square inch
+
+t.test(subset(SuspensionCoil_table,Manufacturing_Lot == "Lot1")$PSI,mu=1500)
+t.test(subset(SuspensionCoil_table,Manufacturing_Lot == "Lot2")$PSI,mu=1500)
+t.test(subset(SuspensionCoil_table,Manufacturing_Lot == "Lot3")$PSI,mu=1500) #determine if the PSI for each manufacturing lot is statistically different from the population means of 1,500 PSI
